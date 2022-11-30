@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Club UI</title>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+    <h1>Footbal clubs catalog</h1>
+
+    <div id="formdiv">
+        <div>
+            <label>Club name</label>
+            <input type="text" id="clubName" />
+        </div>
+        <div>
+            <label>Club manager</label>
+            <input type="text" id="clubManager" />
+        </div>
+        <div>
+            <label>Club owner</label>
+            <input type="text" id="clubOwner" />
+        </div>
+        <div>
+
+            <label>Club value</label>
+            <input type="text" id="clubValue" />
+        </div>
+        <div>
+            <label>League ID it plays in</label>
+            <input type="text" id="leagueID" />
+        </div>
+    </div>
+
+    <div class="kozepre">
+        <button class="btn" type="button" onclick="create()">Add club to catalog</button>
+    </div>
+
+    <div id="updateformdiv">
+        <div>
+            <label>Club name</label>
+            <input type="text" id="clubNameToUpdate" />
+        </div>
+        <div>
+            <label>Club manager</label>
+            <input type="text" id="clubManagerToUpdate" />
+        </div>
+        <div>
+            <label>Club owner</label>
+            <input type="text" id="clubOwnerToUpdate" />
+        </div>
+        <div>
+            <label>Club value</label>
+            <input type="text" id="clubValueToUpdate" />
+        </div>
+        <div>
+            <label>League ID it plays in</label>
+            <input type="text" id="leagueIDToUpdate" />
+        </div>
+    </div>
+
+    <div id="updateButton" class="kozepre">
+        <button class="btn" type="button" onclick="update()">Update club</button>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Manager</th>
+                <th>Owner</th>
+                <th>Value</th>
+                <th>LeagueID</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="resultarea">
+        </tbody>
+    </table>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.1/signalr.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

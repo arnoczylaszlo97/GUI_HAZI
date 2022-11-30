@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MediaBrowser.Common" Version="4.7.0.10" />
+    <PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="5.2.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FZZOC7_HFT_2021221.Models\FZZOC7_HFT_2021221.Models.csproj" />
+    <ProjectReference Include="..\FZZOC7_HFT_2021221.Repository\FZZOC7_HFT_2021221.Repository.csproj" />
+  </ItemGroup>
+
+</Project>

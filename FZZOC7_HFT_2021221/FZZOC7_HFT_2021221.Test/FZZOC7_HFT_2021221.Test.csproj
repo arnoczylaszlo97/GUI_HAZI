@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MediaBrowser.Common" Version="4.7.0.10" />
+    <PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="5.2.7" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.0.0" />
+    <PackageReference Include="Moq" Version="4.16.1" />
+    <PackageReference Include="NUnit" Version="3.13.2" />
+    <PackageReference Include="NUnit3TestAdapter" Version="4.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FZZOC7_HFT_2021221.Logic\FZZOC7_HFT_2021221.Logic.csproj" />
+    <ProjectReference Include="..\FZZOC7_HFT_2021221.Models\FZZOC7_HFT_2021221.Models.csproj" />
+    <ProjectReference Include="..\FZZOC7_HFT_2021221.Repository\FZZOC7_HFT_2021221.Repository.csproj" />
+  </ItemGroup>
+
+</Project>

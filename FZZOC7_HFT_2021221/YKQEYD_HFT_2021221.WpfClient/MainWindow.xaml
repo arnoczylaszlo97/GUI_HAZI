@@ -1,0 +1,177 @@
+﻿<Window x:Class="YKQEYD_HFT_2021221.WpfClient.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:YKQEYD_HFT_2021221.WpfClient"
+        mc:Ignorable="d"
+        Title="Player Editor" Height="800" Width="1200">
+    <Window.DataContext>
+        <local:MainWindowViewModel/>
+    </Window.DataContext>
+    <Grid >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <ListBox Grid.Row="0" Grid.Column="0" ItemsSource="{Binding Players}" SelectedItem="{Binding SelectedPlayer}"  HorizontalContentAlignment="Stretch"  FontSize="15" FontWeight="Bold" BorderBrush="Black" BorderThickness="2">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Border BorderBrush="Black"  BorderThickness="4">
+                            <Grid >
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="1*"/>
+                                    <RowDefinition Height="1*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="1*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Row="0" Grid.Column="0" Content="{Binding Player_ID}" ContentStringFormat="ID: {0}" HorizontalContentAlignment="Center" Foreground="Red" />
+                                <Label Grid.Row="0" Grid.Column="1" Content="{Binding Player_Name}" FontSize="15" HorizontalContentAlignment="Center"/>
+                                <Label Grid.Row="0" Grid.Column="2" Content="{Binding Nationality}" FontSize="15" HorizontalContentAlignment="Center"/>
+                                <Label Grid.Row="1" Grid.Column="0" Content="{Binding Wage}" ContentStringFormat=" [Wage : {0} $] "  HorizontalContentAlignment="Center" />
+                                <Label Grid.Row="1" Grid.Column="1" Content="{Binding  Position}"
+                                     Background="White" Foreground="Green"  FontWeight="Black" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <StackPanel Grid.Row="1" Grid.Column="0" >
+            <Label Content="PLAYER STATS"  Background="LightGreen" Padding="10" BorderBrush="Black" BorderThickness="1" HorizontalContentAlignment="Center" FontWeight="Bold"/>
+            <Grid >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label   Grid.Row="0" Grid.Column="0" Content="Name " Background="LightBlue" Padding="10" BorderBrush="Black" BorderThickness="1" HorizontalContentAlignment="Center" FontWeight="Bold"/>
+                    <TextBox   Grid.Row="0" Grid.Column="1" Text="{Binding SelectedPlayer.Player_Name}" Padding="10" BorderBrush="Black" BorderThickness="1" />
+                    <Label   Grid.Row="1" Grid.Column="0" Content="Nationality" Background="LightBlue" Padding="10" BorderBrush="Black" BorderThickness="1" HorizontalContentAlignment="Center" FontWeight="Bold"/>
+                    <TextBox   Grid.Row="1" Grid.Column="1" Text="{Binding SelectedPlayer.Nationality}" Padding="10" BorderBrush="Black" BorderThickness="1"/>
+                    <Label   Grid.Row="2" Grid.Column="0" Content="Club ID" Background="LightBlue" Padding="10" BorderBrush="Black" BorderThickness="1" HorizontalContentAlignment="Center" FontWeight="Bold"/>
+                    <TextBox   Grid.Row="2" Grid.Column="1" Text="{Binding SelectedPlayer.Club_ID}" Padding="10" BorderBrush="Black" BorderThickness="1"/>
+                    <Label   Grid.Row="3" Grid.Column="0" Content="Wage" Background="LightBlue" Padding="10" BorderBrush="Black" BorderThickness="1" HorizontalContentAlignment="Center" FontWeight="Bold"/>
+                    <TextBox   Grid.Row="3" Grid.Column="1" Text="{Binding SelectedPlayer.Wage}" Padding="10" BorderBrush="Black" BorderThickness="1"/>
+                    <Label   Grid.Row="4" Grid.Column="0" Content="Position" Background="LightBlue" Padding="10" BorderBrush="Black" BorderThickness="1" HorizontalContentAlignment="Center" FontWeight="Bold"/>
+                    <TextBox   Grid.Row="4" Grid.Column="1" Text="{Binding SelectedPlayer.Position}" Padding="10" BorderBrush="Black" BorderThickness="1"/>
+                </Grid>
+            <Button Content="Create Player" Command="{Binding CreatePlayerCommand}" Margin="10" Padding="10" BorderBrush="Black" BorderThickness="1"/>
+            <Button Content="Delete Player" Command="{Binding DeletePlayerCommand}" Margin="10" Padding="10" BorderBrush="Black" BorderThickness="1"/>
+                <Button Content="Update Player" Command="{Binding UpdatePlayerCommand}" Margin="10" Padding="10" BorderBrush="Black" BorderThickness="1"/>
+            </StackPanel>
+    
+        <ListBox Grid.Row="0" Grid.Column="1" ItemsSource="{Binding Leagues}" SelectedItem="{Binding SelectedLeague}"  HorizontalContentAlignment="Stretch"  FontSize="15" FontWeight="Bold" BorderBrush="Black" BorderThickness="2">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderBrush="Black"  BorderThickness="4">
+                        <Grid >
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Row="0" Grid.Column="0" Content="{Binding League_ID}" ContentStringFormat="ID: {0}" HorizontalContentAlignment="Center" Foreground="Red" />
+                            <Label Grid.Row="0" Grid.Column="1" Content="{Binding League_Name}" FontSize="15" HorizontalContentAlignment="Center"/>
+                            <Label Grid.Row="1" Grid.Column="0" Content="{Binding Nation}" FontSize="15" HorizontalContentAlignment="Center"/>
+                            <Label Grid.Row="1" Grid.Column="1" Content="{Binding CL_Places}" ContentStringFormat=" [CL places : {0} ] "  HorizontalContentAlignment="Center" />
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <StackPanel Grid.Row="1" Grid.Column="1" >
+            <Label Content="LEAGUE STATS"  Background="LightGreen" Padding="10" BorderBrush="Black" BorderThickness="1" HorizontalContentAlignment="Center" FontWeight="Bold"/>
+            <Grid >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Label   Grid.Row="0" Grid.Column="0" Content="League Name " Background="LightBlue" Padding="10" BorderBrush="Black" BorderThickness="1" HorizontalContentAlignment="Center" FontWeight="Bold"/>
+                <TextBox   Grid.Row="0" Grid.Column="1" Text="{Binding SelectedLeague.League_Name}" Padding="10" BorderBrush="Black" BorderThickness="1"/>
+                <Label   Grid.Row="1" Grid.Column="0" Content="Nation" Background="LightBlue" Padding="10" BorderBrush="Black" BorderThickness="1" HorizontalContentAlignment="Center" FontWeight="Bold"/>
+                <TextBox   Grid.Row="1" Grid.Column="1" Text="{Binding SelectedLeague.Nation}" Padding="10" BorderBrush="Black" BorderThickness="1"/>
+                <Label   Grid.Row="2" Grid.Column="0" Content="Champion League places" Background="LightBlue" Padding="10" BorderBrush="Black" BorderThickness="1" HorizontalContentAlignment="Center" FontWeight="Bold"/>
+                <TextBox   Grid.Row="2" Grid.Column="1" Text="{Binding SelectedLeague.CL_Places}" Padding="10" BorderBrush="Black" BorderThickness="1"/>
+            </Grid>
+
+            <Button Content="Create Player" Command="{Binding CreateLeagueCommand}" Margin="10" Padding="10" BorderBrush="Black" BorderThickness="1"/>
+            <Button Content="Delete Player" Command="{Binding DeleteLeagueCommand}" Margin="10" Padding="10" BorderBrush="Black" BorderThickness="1"/>
+            <Button Content="Update Player" Command="{Binding UpdateLeagueCommand}" Margin="10" Padding="10" BorderBrush="Black" BorderThickness="1"/>
+        </StackPanel>
+
+        <ListBox Grid.Row="0" Grid.Column="2" ItemsSource="{Binding Clubs}" SelectedItem="{Binding SelectedClub}"  HorizontalContentAlignment="Stretch"  FontSize="15" FontWeight="Bold" BorderBrush="Black" BorderThickness="2">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderBrush="Black"  BorderThickness="4">
+                        <Grid >
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Row="0" Grid.Column="0" Content="{Binding Club_ID}" ContentStringFormat="ID: {0}" HorizontalContentAlignment="Center" Foreground="Red" />
+                            <Label Grid.Row="0" Grid.Column="1" Content="{Binding Club_Name}" FontSize="15" HorizontalContentAlignment="Center"/>
+                            <Label Grid.Row="0" Grid.Column="2" Content="{Binding Value}" ContentStringFormat=" {0} $ " FontSize="15" HorizontalContentAlignment="Center"/>
+                            <Label Grid.Row="1" Grid.Column="0" Content="{Binding Owner}" ContentStringFormat=" [Owner : {0} ] "  HorizontalContentAlignment="Center" />
+                            <Label Grid.Row="1" Grid.Column="1" Content="{Binding Manager}" ContentStringFormat=" [Manager : {0} ] "  HorizontalContentAlignment="Center" />
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <StackPanel Grid.Row="1" Grid.Column="2" >
+            <Label Content="CLUB STATS"  Background="LightGreen" Padding="10" BorderBrush="Black" BorderThickness="1" HorizontalContentAlignment="Center" FontWeight="Bold"/>
+            <Grid >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Label   Grid.Row="0" Grid.Column="0" Content="Club Name " Background="LightBlue" Padding="10" BorderBrush="Black" BorderThickness="1" HorizontalContentAlignment="Center" FontWeight="Bold"/>
+                <TextBox   Grid.Row="0" Grid.Column="1" Text="{Binding SelectedClub.Club_Name}" Padding="10" BorderBrush="Black" BorderThickness="1"/>
+                <Label   Grid.Row="1" Grid.Column="0" Content="Value" Background="LightBlue" Padding="10" BorderBrush="Black" BorderThickness="1" HorizontalContentAlignment="Center" FontWeight="Bold"/>
+                <TextBox   Grid.Row="1" Grid.Column="1" Text="{Binding SelectedClub.Value}" Padding="10" BorderBrush="Black" BorderThickness="1"/>
+                <Label   Grid.Row="2" Grid.Column="0" Content="Owner" Background="LightBlue" Padding="10" BorderBrush="Black" BorderThickness="1" HorizontalContentAlignment="Center" FontWeight="Bold"/>
+                <TextBox   Grid.Row="2" Grid.Column="1" Text="{Binding SelectedClub.Owner}" Padding="10" BorderBrush="Black" BorderThickness="1"/>
+                <Label   Grid.Row="3" Grid.Column="0" Content="Manager" Background="LightBlue" Padding="10" BorderBrush="Black" BorderThickness="1" HorizontalContentAlignment="Center" FontWeight="Bold"/>
+                <TextBox   Grid.Row="3" Grid.Column="1" Text="{Binding SelectedClub.Manager}" Padding="10" BorderBrush="Black" BorderThickness="1"/>
+            </Grid>
+
+            <Button Content="Create Player" Command="{Binding CreateClubCommand}" Margin="10" Padding="10" BorderBrush="Black" BorderThickness="1"/>
+            <Button Content="Delete Player" Command="{Binding DeleteClubCommand}" Margin="10" Padding="10" BorderBrush="Black" BorderThickness="1"/>
+            <Button Content="Update Player" Command="{Binding UpdateClubCommand}" Margin="10" Padding="10" BorderBrush="Black" BorderThickness="1"/>
+        </StackPanel>
+    </Grid>
+</Window>

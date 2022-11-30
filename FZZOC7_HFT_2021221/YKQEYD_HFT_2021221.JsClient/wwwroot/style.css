@@ -1,0 +1,72 @@
+﻿table{
+    width:100%;
+}
+
+h1{
+    text-align: center;
+}
+
+table, th, td{
+    border: 1px solid black;
+}
+
+table{
+    margin-top:20px;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+th, td{
+    padding: 5px;
+    text-align: center;
+}
+
+th{
+    background-color:lightblue;
+}
+
+label{
+    display:block;
+    text-align: center;
+}
+
+input{
+    margin-bottom:5px;
+}
+
+div{
+    margin-right: 10px;
+}
+
+#formdiv{
+    display: flex;
+    justify-content: center;
+}
+
+.btn{
+    margin:10px;
+    font-size: 20px;
+}
+
+table button{
+    font-size: 18px;
+    padding: 5px;
+    margin-inline: 10px;
+}
+
+.kozepre {
+    display: flex;
+    justify-content: center;
+}
+
+#updateformdiv {
+    display: none;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#updateButton{
+    display: none;
+}
+
+
